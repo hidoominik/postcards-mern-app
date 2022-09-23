@@ -59,7 +59,10 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField 
                     name = "creator" 
                     variant = "outlined" 
-                    label="Creator" 
+                    label="Creator"
+                    inputProps={{
+                        className: classes.multilineColor
+                    }} 
                     fullWidth 
                     value={postData.creator}
                     onChange={(event) => setPostData({...postData, creator: event.target.value})}
@@ -67,23 +70,35 @@ const Form = ({ currentId, setCurrentId }) => {
                   <TextField
                     name = "title" 
                     variant = "outlined" 
-                    label="Title" 
+                    label="Title"
+                    inputProps={{
+                        className: classes.multilineColor
+                    }} 
                     fullWidth 
                     value={postData.title}
                     onChange={(event) => setPostData({...postData, title: event.target.value})}
                 />
                   <TextField
-                    name = "message" 
-                    variant = "outlined" 
-                    label="Message" 
+                    className = {classes.textFieldStyle}
+                    name = "message"
+                    variant = "outlined"
+                    style={{color: 'white'}} 
+                    label="Message"
+                    inputProps={{
+                        className: classes.multilineColor
+                    }} 
                     fullWidth 
                     value={postData.message}
                     onChange={(event) => setPostData({...postData, message: event.target.value})}
                 />
                   <TextField
-                    name = "tags" 
+                    name = "tags"
+                    style={{color: 'white'}}
                     variant = "outlined" 
-                    label="Tags" 
+                    label="Tags"
+                    inputProps={{
+                        className: classes.multilineColor
+                    }} 
                     fullWidth 
                     value={postData.tags}
                     onChange={(event) => setPostData({...postData, tags: event.target.value.split(',')})}
