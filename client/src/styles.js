@@ -9,6 +9,12 @@ export default makeStyles((theme)=>({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        background: 'rgba( 255, 255, 255, 0.4 )',
+        boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+        backdropFilter: 'blur( 5.5px )',
+        webkitBackdropFilter: 'blur( 5.5px )',
+        border: '1px solid rgba( 255, 255, 255, 0.18 )',
+        color: 'white'
     },
     heading:{
         color: 'rgba(0,183,255,1)',

@@ -10,6 +10,7 @@ import moment from 'moment';
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from "../../../actions/posts";
 
+
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -29,21 +30,21 @@ const Post = ({ post, setCurrentId }) => {
                 </Button>
             </div>
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary">{post.tags.map((tag)=>`#${tag} `)}</Typography>
+                <Typography variant="body2" color="gray">{post.tags.map((tag)=>`#${tag} `)}</Typography>
 
             </div>
                 <Typography className={ classes.title } variant="h5" gutterBottom> {post.title}</Typography>
             <CardContent>
-                <Typography variant="h6" color="textSecondary" component="p">{post.message}</Typography>  
+                <Typography variant="h6" color="white" component="p">{post.message}</Typography>  
             </CardContent>
             <CardActions>
 
-                <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id))}>
+                <Button size="small" style={{color: 'white'}}  onClick={() => dispatch(likePost(post._id))}>
                     <ThumbUpAltIcon fontSize="small"/>
                     &nbsp; Like &nbsp; {post.likeCount}
                 </Button>
 
-                <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
+                <Button size="small" color='secondary'  onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small"/>
                     Delete   
                 </Button>
