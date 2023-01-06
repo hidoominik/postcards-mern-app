@@ -5,28 +5,28 @@ import LockOutlined from '@material-ui/icons/LockOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Input from './Input';
-// import {signup, signin} from '../../actions/auth'
+import {signup, signin} from '../../actions/auth'
 
 
 const Auth = () => {
     
     const classes = useStyles();
-    const initialState = {username:'', password:'', confirmPassword:''}
+    const initialState = {firstName:'',lastName:'', email:'', password:'', confirmPassword:''}
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState(initialState);
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
     const handleSubmit =(e)=>{
         e.preventDefault();
         
-        // if(isSignup){
-        //     dispatch(signup(formData,navigate))
-        // }else{
-        //     dispatch(signin(formData,navigate))
-        // }
+        if(isSignup){
+            dispatch(signup(formData,navigate))
+        }else{
+            dispatch(signin(formData,navigate))
+        }
     };
     const handleChange =(e)=>{ //Same handle change for each field from form 
         console.log("Change!");
@@ -51,20 +51,19 @@ const Auth = () => {
 
             <form onSubmit={handleSubmit} className={classes.form}>
                 <Grid container spacing={2}>
-                    {/* {
+                    {
                         isSignup && ( //ONLY IF isSignup == true
                             <>
-                                <Input name='email' label="Email" handleChange={handleChange} type='email'/>
+                                <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half />
+                                <Input name="lastName" label="Last Name" handleChange={handleChange} half />
                             </>
                         ) 
-                    } */}
-                    <Input name='username' label="Username" handleChange={handleChange} type='text' autoFocus/>
+                    }
+                    <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
                     <Input name='password' label='Password' handleChange={handleChange} type = {showPassword ? "text" : "password"} handleShowPassword={handleShowPassword}/>
                     { isSignup && (
                         <>
                             <Input name="confirmPassword" label="Repeat password" handleChange = {handleChange} type="password" />
-                         
-                           
                         </>
                     )}
             
