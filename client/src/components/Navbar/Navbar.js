@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className={classes.brandContainer}>
 
     
-        <Typography variant = "h2" align = "center">Postcards</Typography>
+        <Typography variant = "h2" component={Link} to="/" align = "center">Postcards</Typography>
         <img className={classes.image} src = {memories} alt = "memories" height="60" />
     </div>    
     <Toolbar className={classes.toolbar}></Toolbar>
@@ -21,10 +21,10 @@ const Navbar = () => {
             <div>
                 <Avatar className={classes.purple}  alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
                 <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
-                <Button variant="contained" className={classes.logout} color="secondary">Logout</Button>
+                <Button variant="contained" component={Link} to="/auth" className={classes.logout} color="secondary">Logout</Button>
             </div>
         ):(
-            <Button variant="contained" className={classes.login} color="primary">Login</Button>
+            <Button variant="contained" component={Link} to="/auth" className={classes.login} color="primary">Login</Button>
         )}
     </AppBar>
   )

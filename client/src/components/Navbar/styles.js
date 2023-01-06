@@ -20,7 +20,7 @@ export default makeStyles((theme) => ({
     fontFamily: "Courier New",
     
     color: 'rgba(63,81,181, 1)',
-    textDecoration: 'none',
+    textDecoration: 'none !important',
   },
   image: {
     marginLeft: '15px',
