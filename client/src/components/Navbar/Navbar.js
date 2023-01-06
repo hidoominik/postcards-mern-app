@@ -37,7 +37,7 @@ const Navbar = () => {
     <div className={classes.brandContainer}>
 
     
-        <Typography variant = "h2" component={Link} to="/" align = "center">Postcards</Typography>
+        <Typography className = {classes.heading} variant = "h2" component={Link} to="/" align = "center" underline="none">Postcards</Typography>
         <img className={classes.image} src = {memories} alt = "memories" height="60" />
     </div>    
     <Toolbar className={classes.toolbar}></Toolbar>

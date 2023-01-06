@@ -14,13 +14,14 @@ export default makeStyles((theme) => ({
         backdropFilter: 'blur( 5.5px )',
         webkitBackdropFilter: 'blur( 5.5px )',
         border: '1px solid rgba( 255, 255, 255, 0.18 )',
-        color: 'white'
+        color: 'white',
+        textDecoration: 'none !important'
     },
   heading: {
     fontFamily: "Courier New",
-    
-    color: 'rgba(63,81,181, 1)',
+    color: 'white',
     textDecoration: 'none !important',
+    marginLeft: '15px'
   },
   image: {
     marginLeft: '15px',
