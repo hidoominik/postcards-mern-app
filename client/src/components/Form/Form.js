@@ -30,8 +30,8 @@ const Form = ({ currentId, setCurrentId }) => {
         e.preventDefault();
         console.log("Submit clicked!")
         if(currentId){
-    
-           dispatch(updatePost({...postData, name: user?.result?.name})); 
+            console.log(currentId)
+           dispatch(updatePost(currentId,{...postData, name: user?.result?.name})); 
 
         }else{
            
