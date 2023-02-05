@@ -24,12 +24,33 @@ const Home = () => {
     const navigate = useNavigate();
     const Page = query.get('page') || 1; //if there is no page use 1
     const searchQuery = query.get('searchQuery');
-
-
+    const [search, setSearch] = useState('');
+    const [tags, setTags] = useState([]);
     useEffect(()=>{
         dispatch(getPosts());
     },[dispatch]);
     
+    const handleKeyPress = (e) => {
+        if(e.keyCode === 13){ //enter key pressed
+            //search post logic
+            searchPost();
+        }
+    }
+
+    const handleAdd = (tag) => {
+        setTags([...tags, tag]);
+    }
+
+    const handleDelete = (tagToDelete) => setTags(tags.filter((tag)=> tag !== tagToDelete));
+
+    const searchPost = () => {
+        if(search.trim()){
+            //dispatch fetch search post
+         } else {
+            navigate('/');
+         }
+
+    }
 
   return (
     <Grow in>
@@ -40,7 +61,17 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
                 <AppBar className={classes.appBarSearch} position="static" color="inherit">
-                    <TextField name="search" variant="outlined" label="Search Postcard" fullWidth value="TEST" onChange={() => {}}/>
+                    <TextField name="search" variant="outlined" label="Search Postcard" fullWidth value={search} onChange={(e) => setSearch(e.target.value)} onKeyPress={handleKeyPress}/>
+                    <ChipInput 
+                        style={{margin: '10px 0'}}
+                        value={tags}
+                        onAdd={handleAdd}
+                        onDelete={handleDelete}
+                        label="Search Tags"
+                        variant="outlined"
+
+                    />
+                    <Button onClick={searchPost} className={classes.searchButton} color="primary" variant='contained'> Search post</Button>
                 </AppBar>
                 <Form currentId = {currentId} setCurrentId = {setCurrentId} />
                 <Paper elevation={6} className={classes.pagination} >
