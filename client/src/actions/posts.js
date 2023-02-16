@@ -3,13 +3,13 @@ import * as api from '../api';
 
 //Action creators - functions returning actions
 
-export const getPosts = () => async (dispatch) => { //fetching all the posts can take some time, so async function is required, 
+export const getPosts = (page) => async (dispatch) => { //fetching all the posts can take some time, so async function is required, 
     
     try {
-        //const action = { type: 'FETCH_ALL', payload: []}
-        const { data } = await api.fetchPosts();
-        //dispatch(action);  since we use async function (thunk), we dispatch action instead of simply returning it 
-        dispatch({type: FETCH_ALL, payload: data}); //FETCH_ALL logic placed in reducers
+        
+        const { data } = await api.fetchPosts(page);
+        console.log(data)
+        dispatch({type: FETCH_ALL, payload: data}); 
     } catch (error) {
         console.log(error.message)   
     }  

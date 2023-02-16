@@ -22,14 +22,12 @@ const Home = () => {
     const dispatch = useDispatch();
     const query = useQuery();
     const navigate = useNavigate();
-    const Page = query.get('page') || 1; //if there is no page use 1
+    const page = query.get('page') || 1; //if there is no page use 1
     const searchQuery = query.get('searchQuery');
     const [search, setSearch] = useState('');
     const [tags, setTags] = useState([]);
 
-    useEffect(()=>{
-        dispatch(getPosts());
-    },[dispatch]);
+
     
     const handleKeyPress = (e) => {
         if(e.keyCode === 13){ //enter key pressed
@@ -77,7 +75,7 @@ const Home = () => {
                 </AppBar>
                 <Form currentId = {currentId} setCurrentId = {setCurrentId} />
                 <Paper elevation={6} className={classes.pagination} >
-                    <Pagination />
+                    <Pagination page={page} />
                 </Paper>
             </Grid>
             
