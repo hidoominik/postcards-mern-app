@@ -13,7 +13,8 @@ export default makeStyles((theme) => ({
     backdropFilter: 'blur( 5.5px )',
     webkitBackdropFilter: 'blur( 5.5px )',
     border: '1px solid rgba( 255, 255, 255, 0.18 )',
-    color: 'white'
+    color: 'white',
+    borderRadius: 15,
   },
   form: {
     display: 'flex',
