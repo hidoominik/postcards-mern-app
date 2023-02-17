@@ -14,23 +14,22 @@ const Form = ({ currentId, setCurrentId }) => {
         tags:'',
         selectedFile:''
     });
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const classes = useStyles();
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
 
     useEffect(() => {
         if(post) setPostData(post); //data of edited post
-        console.log("Post to edit")
-        console.log(post)
+        
     },[currentId, post])
 
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log("Submit clicked!")
+       
         if(currentId){
-            console.log(currentId)
+            
            dispatch(updatePost(currentId,{...postData, name: user?.result?.name})); 
 
         }else{
